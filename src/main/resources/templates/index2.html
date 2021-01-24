@@ -1,0 +1,380 @@
+<!doctype html>
+	<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+
+    <title>Course Manager</title>
+</head>
+
+<style>
+
+	body {	
+		text-align: center;
+		margin: 0 auto;
+		color: white;
+		background-image: url('https://preview.redd.it/d4fntvbnpik31.jpg?width=960&crop=smart&auto=webp&s=d47e4139cc3720bb50b6c5b79ca0b2c8c287772c');
+		background-attachment: fixed;
+		background-size: cover;
+		background-position: center;
+	}	
+
+	#header {
+		height: 20%;
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	footer-notify, products-notify {
+		width: 100%;
+	}
+
+	.info-big {
+		font-size: 50px;	
+		padding-top: 300px;
+	}
+
+	.info {
+		margin: 0 auto;
+		padding: 0px 20px 0px 20px;
+		width: 500px;
+	}
+	
+	.white-overlay {
+		height: 100%;
+		background-color: rgba(0,0,0,0.5);
+	}
+
+	.fa {
+		color: white;
+		padding: 0px 20px 0px 20px;
+	}
+		
+	#nav-button {
+		opacity: 50%;
+		cursor: pointer;
+		float: left;
+		padding: 30px 36px 30px 36px;
+		transition-property: opacity;
+                transition-duration: 500ms;
+	}
+	
+	#nav-button:hover {
+		opacity: 100%;
+		transition-property: opacity;
+		transition-duration: 1000ms;
+	}
+
+	.top {
+		width: 100%;
+		transition-property: width;
+                transition-duration: 1000ms;
+	}
+
+	#nav-panel {
+		background-color: rgba(0,0,0,0.88);
+		width: 0%;
+		transition-property: width;
+                transition-duration: 1000ms;
+	}
+	
+	#nav-panel-content {
+		height: 100%;
+		opacity: 0%;
+		transition-property: opacity;
+                transition-duration: 3000ms;
+	}
+
+	.tabsection {
+		cursor: pointer;
+		transition-property: box-shadow, text-shadow;
+		transition-duration: 100ms;
+	}
+
+	.tabsection:hover {
+		text-shadow: 0px 2px 13px white;
+		/* box-shadow: 
+			10px 20px 80px rgba(100,200,255,0.2), 
+			10px 20px 50px rgba(255,255,255,0.2),
+			0px 0px 10px 100px rgba(100,200,255,0.1) inset,
+			0px 0px 10px 50px rgba(255,255,255,0.1) inset; */
+		transition-property: box-shadow, text-shadow;
+		transition-duration: 300ms;
+	}
+
+	#news .row {
+		border: 5px solid red;
+	}
+
+	#news .column {
+		border: 5px solid cyan;
+	}
+
+	.link-bg {
+		height: 10px;
+		background-color: rgba(255,255,255,0.1);
+	}
+
+	.div-input input {	
+		border: none;
+		outline: none;
+		background: none;
+		color: white;
+		font-size: 20px;
+		width: 180px;
+		float: left;
+		margin: 0 10px;
+	}
+
+	.div-input {
+		width: 100%;
+		overflow: hidden;
+		font-size: 20px;
+		padding: 8px 0;
+		margin: 8px 0;
+		border-bottom: 1px solid cyan;
+	}
+
+	.div-input i {
+		font-size: 30px;
+		float: left;
+		width: 20%;
+		text-align: center;
+	}
+
+	.credentials {
+		width: 20%;
+		padding: 50px;
+		position: absolute;
+	}
+
+	#nav-panel-content h1 {
+		padding: 80px 0px 50px 0px;
+	}
+
+	#profile {
+		border-radius: 100%;
+		width: 28px;
+		height: 28px;
+	}
+
+	.link {
+	}
+
+	.cover img {
+		margin-top: 50px;
+		width: 100%;
+		height: 800px;
+	}
+
+	.caption {
+		position: absolute;
+	}
+
+	@media screen and (max-width: 1080px) {
+  		#nav-button {
+			display: none;
+		}
+	}
+
+	@media screen and (max-width: 725px) {
+                .link {
+                        display: none;
+                }
+
+		.tabsection .fa {
+			display: block;
+		}
+        }
+
+	@media screen and (min-width: 725px) {
+                .link {
+                       	display: block;
+                }
+
+                .tabsection .fa {
+			display: none;
+                }
+        }
+
+
+
+
+
+	#news-image {
+		background-image: url('https://i.pinimg.com/originals/bf/82/f6/bf82f6956a32819af48c2572243e8286.jpg');
+		background-size: cover;
+		background-position: center;
+		height: 100%;
+	}
+
+	.caption {	
+		font-size: 24px;
+		display: block;	
+		position: relative;
+		padding: 200px;
+	}
+
+	.black-overlay {
+		background-color: rgba(0,0,0,0.5);
+		height: 100%;
+		width: 100%;
+	}
+	
+	.mews-card {
+		height: 1000px;
+		background-color: black;
+	}
+
+</style>
+
+<body>
+	<div class="container-fluid">
+	<div class="row">
+		<div id="nav-panel">
+			<div id="nav-panel-content">
+				<h1>Sign Up</h1>
+				<div class="credentials">
+					<div class="div-input" id="div-username">
+						<i class="fa fa-user" aria-hidden="true"></i>
+						<input type="text" placeholder="Username">
+					</div>
+					<div class="div-input" id="div-password">
+						<i class="fa fa-lock" aria-hidden="true"></i>
+						<input type="password" placeholder="Password">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="top white-overlay">
+			<div class="row justify-content-between align-items-center" id="header">
+				<p id="nav-button" class="column col-1 fa fa-th-list fa-4x"></p>
+				<div class="column col-2 tabsection" id="home"><i class="fa fa-home"></i><h3 class="link" id="link-1">Home</h3><br><p class="link-bg" id="tab-1"></p></div>
+				<div class="column col-2 tabsection" id="tabsection-2"><i class="fa fa-newspaper"></i><h3 class="link" id="link-2">News</h3><br><p class="link-bg" id="tab-2"></p></div>
+				<div class="column col-2 tabsection" id="products"><i class="fa fa-shopping-cart"></i><h3 class="link" id="link-3">Products</h3><br><p class="link-bg" id="tab-3"></p></div>
+				<div class="column col-2 tabsection" id="tabsection-4"><i class="fa fa-meh"></i><h3 class="link" id="link-4">About</h3><br><p class="link-bg" id="tab-4"></p></div>
+				<div class="column col-2 tabsection" id="tabsection-5"><i class="fa fa-user"></i><h3 class="link" id="link-5"><img id="profile" src="https://uhdwallpapers.org/uploads/converted/18/04/06/anonymous-mask-and-orange-smoke-1024x1024_75644-mm-90.jpg"></h3><br><p class="link-bg" id="tab-5"></p></div>
+			</div>
+			
+			<div id="news">
+				<hr>
+				<div class="row">
+					<div class="column col-12 caption" id="news-image">
+						<div class="black-overlay">
+						It is a long established fact that a reader will be distracted 
+						by the readable content of a page when looking at its layout. 
+						The point of using Lorem Ipsum is that it has a more-or-less 
+						normal distribution of letters, as opposed to using 
+						'Content here, content here', making it look like readable English. 
+						Many desktop publishing packages and web page editors now use Lorem 
+						Ipsum as their default model text, and a search for 'lorem ipsum' 
+						will uncover many web sites still in their infancy. 
+						Various versions have evolved over the years, 
+						sometimes by accident, sometimes on purpose (injected humour and the like).
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="column col-6 news-card">
+						fdsf
+					</div>
+					<div class="column col-6 news-card">
+						jkfdsjkl
+					</div>
+				</div>
+			</div>	
+
+		</div>
+		<footer-notify></footer-notify>
+	</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</body>
+
+<script src="./tabs_1/io.js"></script>
+<script src="./tabs_1/tabs_controller.js"></script>
+<script src="./tabs_1/Tab.js"></script>
+<script src="./tabs_1/data.js"></script>
+<script src="./tabs_1/tabs_interface.js"></script>
+<script src="panel_interface.js"></script>
+
+<script src="./components/startup.js"></script>
+<!--<script src="./components/footer.js"></script>-->
+<script src="./components/home.js"></script>
+<script src="./components/products.js"></script>
+<script>
+	let t = new TabsController();
+	let io = new IO();
+	// if you are using the name data, make sure that the name chosen is the same
+	// as the instantiation name in the controller class and the file name
+	let data = new TabsData();
+	let p = new Panel();
+	let tabs_interface = new TabsInterface();
+
+
+	
+	// START LOAD \\
+	$("#header").children(".tabsection").each(function(index, v) { 
+		var tab_id = $(this).attr("id");
+		var content_id = "";
+		for (var i in t.loadTabs()) {
+			if (tab_id == i.getName()) {
+				content_id = i.getContent(); 
+			}
+		}
+		$(".section").html(content_id);
+	});
+	t.startup("home");
+	
+
+
+
+
+	$("#nav-button").click(function() {
+		if (p.isClosed("#nav-panel")) {
+			p.open_nav_panel("#nav-panel", "#nav-panel-content", ".top");
+		} else {
+			p.close_nav_panel("#nav-panel", "#nav-panel-content", ".top");
+		}
+	});
+
+	// INTERFACE \\
+	// TABS \\
+	$(".tabsection").click(function() {
+		var tab_id = $(this).attr("id");
+		t.startup(tab_id);
+		
+                var content_id = "";
+                for (var i in data.tabs) {
+                        if (tab_id == data.tabs[i].name) {
+                                content_id = data.tabs[i].content;
+				break;
+                        }
+                }
+                $("#section").html("<" + content_id + "></" + content_id + ">");
+	});
+
+</script>
+
+</html>

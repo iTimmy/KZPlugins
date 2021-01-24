@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+
+    <title>Course Manager</title>
+</head>
+
+<style>
+	body {	
+		text-align: center;
+		margin: 0 auto;
+		color: white;
+		background-image: url('cover-1.jpg');
+		background-attachment: fixed;
+		background-size: cover;
+		background-position: center;
+	}	
+
+	#header {
+		background-color: rgb(14,19,24);
+		height: 80px;
+	}
+
+	#panel {
+		background-color: rgb(14,19,24);
+		height: 1000px;
+	}
+	
+	.container-fluid {
+		background-color: black;
+	}
+
+	.slide h3 {
+		font-size: 18px;
+		text-align: center;
+		width: 100%;
+		padding-top: 12px;
+	}
+
+	.slide {
+		border: 0.5px solid rgba(255,255,255,0.05);
+		height: 50px;
+		cursor: pointer;
+		transition-duration: 500ms;
+		transition-property: background-color;
+	}
+
+	.slide:hover {
+		background-color: black;
+		transition-duration: 100ms;
+		transition-property: background-color;
+	}
+
+	#profile-picture {
+		height: 23%;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+
+	.overlay {
+		position: absolute;
+		height: 23%;
+		width: 100%;
+		background-color: rgb(0,0,0);
+		opacity: 0%;
+		transition-duration: 500ms;
+		transition-property: opacity;
+	}
+
+	.overlay:hover {
+		cursor: pointer;
+		opacity: 80%;
+		transition-duration: 1000ms;
+		transition-property: opacity;
+	}
+
+	#info {
+		height: 7%;
+		padding: 10px;
+	}
+	
+	.overlay-text {
+		text-align: center;
+		margin-top: 40%;
+		background-color: rgba(0,0,0,0.5);
+	}
+		
+	#tabs a {
+		font-weight: bold;
+		color: white;
+	}
+
+	#tabs a:hover {
+		text-decoration: none;
+		color: grey;
+	}
+
+	.sub {
+		background-color: rgba(0,0,0,0.5);
+	}
+
+	#middle, #top {
+		height: 1000px;
+	}
+
+	#middle {
+		background-image: url('cover-2.jpg');
+                background-attachment: fixed;
+                background-size: cover;
+                background-position: center;
+	}
+
+	#top {
+		background-image: url('cover-1.jpg');
+                background-attachment: fixed;
+                background-size: cover;
+                background-position: center;
+	}
+
+	.white-overlay {	
+		background-color: rgba(255,255,255,0.15);
+		height: 100%;
+		width: 100%;
+		opacity: 100%;
+	}
+
+	.black-box {
+		background-color: rgba(0,0,0,0.88);
+		box-shadow: 0px 5px 15px rgba(0,0,0,0.8);
+		height: 500px;	
+		width: 360px;
+		margin: 0 auto;
+		margin-top: 10%;
+		opacity: 0%;
+		padding: 50px;
+	}
+
+	#get-started {
+		margin: 0 auto;
+		margin-top: 23%;
+		box-shadow: 0px 5px 20px black;
+		padding: 15px 25px 15px 25px;
+		font-size: 24px;
+		color: white;
+	}
+
+	#register, #login {
+		margin: 30px 0px 30px 0px;
+	}
+
+	.fa-user {
+		margin-top: 150px;
+	}
+
+	.fas {
+
+	}
+
+	.info-box {
+		background-color: black;
+		height: 800px;
+	}
+
+	.info {
+		font-size: 24px;
+		font-family: Verdana;
+	}
+
+	strong {
+		cursor: pointer;
+		width: 100%;
+	}
+
+	strong:hover {
+		text-decoration: underline;
+	}
+</style>
+
+<body>
+    	<div class="container-fluid">
+		<div class="row" id="header">
+			<img class="column col-2" style="padding:10px 0px 10px 0px" src="logo.png">
+			<div class="column col-10" id="tabs">
+				<a href="home.html">Home</a> | <a href="forums.html">Forums</a> | <a href="account.html">iTimmy</a>
+			</div>
+		</div>
+		<div class="row" id="top">
+			<div class="white-overlay">
+			<button type="button" id="get-started" class="btn btn-warning btn-lg">Get Started</button>
+				<div class="black-box">
+					<div class="row input-div">
+						<div class="i">
+							<i class="fas fa-user xxlarge"></i>
+						</div>
+					</div>
+					<div class="row input-div">
+						<div class="i">
+							<i class="fas fa-lock xxlarge"></i>
+						</div>
+					</div>
+					<div class="row">
+						<button type="button" id="register" class="column col-6 btn btn-danger btn-md">Register</button>
+						<button type="button" id="login" class="column col-6 btn btn-success btn-md">Login</button>
+					</div>
+
+					<div style="text-align:center">
+						<div class="row">
+							<strong>Forgot Password</strong>
+						</div>
+						<div class="row">
+							<strong>Forgot Username</strong>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div class="row info-box">
+			<p class="info">
+			There are many variations of passages of Lorem Ipsum available, 
+			but the majority have suffered alteration in some form, by injected humour, 
+			or randomised words which don't look even slightly believable. 
+			If you are going to use a passage of Lorem Ipsum, 
+			you need to be sure there isn't anything embarrassing hidden in the middle of text. 
+			All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, 
+			making this the first true generator on the Internet. 
+			It uses a dictionary of over 200 Latin words, 
+			combined with a handful of model sentence structures, 
+			to generate Lorem Ipsum which looks reasonable. 
+			The generated Lorem Ipsum is therefore always free from repetition, 
+			injected humour, or non-characteristic words etc.
+			</p>
+			
+			<p class="info">
+			Contrary to popular belief, Lorem Ipsum is not simply random text. 
+			It has roots in a piece of classical Latin literature from 45 BC, 
+			making it over 2000 years old. Richard McClintock, 
+			a Latin professor at Hampden-Sydney College in Virginia, 
+			looked up one of the more obscure Latin words, consectetur, 
+			from a Lorem Ipsum passage, and going through the cites of the word in classical literature, 
+			discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of 
+			"de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. 
+			This book is a treatise on the theory of ethics, very popular during the Renaissance. 
+			The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+			The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. 
+			Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced 
+			in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+			</p>
+		</div>
+		<div class="row" id="middle">
+			<div class="black-box">
+                                <!--<div class="input-div">
+                                	<div class="i">
+                                		<i class="fas fa-user xxlarge"></i>
+                                	</div>
+                                </div>
+                                <div class="input-div">
+                                	<div class="i">
+                                		<i class="fas fa-lock xxlarge"></i>
+                                	</div>
+                                </div>-->
+				<button type="button" id="login" class="btn btn-warning btn-lg">Login</button>
+                        	<button type="button" id="register" class="btn btn-success btn-lg">Register</button>
+                        </div>
+		</div>
+	</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+<script>
+	$("#get-started").click(function() {
+		$(this).css({ "opacity": "0%" , "transition-property": "opacity" , "transition-duration": "1000ms" });
+		if ($(this).css("opacity") <= 1) {
+			$(this).css({ "display": "none" });
+		}
+		$(".black-box").css({ "opacity": "100" , "transition-property": "opacity" , "transition-duration": "1500ms" });
+		$(".white-overlay").css({ "background-color": "rgba(255,255,255,0)" , "transition-property": "background-color" , "transition-duration": "1500ms" });
+	});
+</script>
+
+</html>
